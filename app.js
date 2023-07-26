@@ -43,14 +43,12 @@ function playRound(computer, user) {
 		(computer === 'PAPER' && user === 'SCISSORS') ||
 		(computer === 'SCISSORS' && user === 'ROCK')
 	) {
-		console.log(`User wins! ${user} beats ${computer}`);
 		return 'user';
 	} else if (
 		(computer === 'ROCK' && user === 'SCISSORS') ||
 		(computer === 'PAPER' && user === 'ROCK') ||
 		(computer === 'SCISSORS' && user === 'PAPER')
 	) {
-		console.log(`You Lose! ${computer} beats ${user}`);
 		return 'cpu';
 	}
 }
@@ -75,6 +73,7 @@ function game() {
 				break;
 		}
 	}
+	console.table(userScore, cpuScore);
 	if(cpuScore > userScore){
 		console.log('CPU Won')
 	} else if (userScore > cpuScore){
@@ -82,4 +81,5 @@ function game() {
 	} else {
 		console.log('it was a tie')
 	}
+	
 }
