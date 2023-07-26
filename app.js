@@ -1,7 +1,7 @@
 //  start new game
 //  || take user input ||
 //  || computer generate choice ||
-//  || find round winner ||
+//  || find round roundWinner ||
 //  || output message ||
 //  change score
 //  check for game win
@@ -11,8 +11,7 @@
 const choices = ['rock', 'paper', 'scissors'];
 const maxRounds = 5;
 
-const computerChoice = getComputerChoice().toUpperCase();
-const userInput = getUserInput().toUpperCase();
+
 
 //game function
 game();
@@ -59,11 +58,13 @@ function playRound(computer, user) {
 function game() {
 	let userScore = 0;
 	let cpuScore = 0;
-	let playing = true;
+	const gameWinner = undefined;
 
 	for (let i = 0; i < maxRounds; i++) {
-		const winner = playRound(computerChoice, userInput);
-		switch (winner) {
+		const computerChoice = getComputerChoice().toUpperCase();
+		const userInput = getUserInput().toUpperCase();
+		let roundWinner = playRound(computerChoice, userInput);
+		switch (roundWinner) {
 			case 'cpu':
 				cpuScore++;
 				break;
@@ -73,6 +74,12 @@ function game() {
 			case 'tie':
 				break;
 		}
-		console.table(cpuScore, userScore);
+	}
+	if(cpuScore > userScore){
+		console.log('CPU Won')
+	} else if (userScore > cpuScore){
+		console.log("User won!")
+	} else {
+		console.log('it was a tie')
 	}
 }
