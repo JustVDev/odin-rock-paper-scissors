@@ -14,7 +14,7 @@ const maxRounds = 5;
 
 
 //game function
-game();
+// game();
 
 // functions below
 

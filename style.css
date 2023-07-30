@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    place-items: center;
+    padding: 10vh 10vw;
+    padding-bottom: 5vh;
+
+}
+
+main, section{
+    flex: 1;
+    display: flex;
+    gap: 25vw;
+    place-items: center;
+}
+
+button{
+    font-size: 4rem;
+}
+.score{
+    font-size: 2rem;
+}
