@@ -11,8 +11,11 @@ body{
     justify-content: space-between;
     place-items: center;
     padding: 10vh 10vw;
-    padding-bottom: 5vh;
+    padding-bottom: 1vh;
 
+}
+header{
+    margin-bottom: 2rem;
 }
 
 main, section{
@@ -21,10 +24,24 @@ main, section{
     gap: 25vw;
     place-items: center;
 }
+main{
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 
 button{
     font-size: 4rem;
 }
 .score{
     font-size: 2rem;
+}
+
+.card{
+    flex-shrink: 0;
+}
+.computer-choice{
+    flex: 1 0 80vw;
+    font-size: 1.5rem;
+    text-align: center;
 }
