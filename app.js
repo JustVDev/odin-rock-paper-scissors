@@ -5,7 +5,6 @@ const computerChoiceDom = document.querySelector('.computer-choice');
 const userScoreDOM = document.querySelector('.player-score');
 const computerScoreDOM = document.querySelector('.cpu-score');
 
-
 let userChoice;
 let computerChoice;
 
@@ -17,26 +16,23 @@ let computerScore = 0;
 //game function
 game();
 
-function game (){
+function game() {
+	//game initialized when user clicks button
 	btns.forEach((btn) => {
 		btn.addEventListener('click', () => {
 			userChoice = btn.dataset.type;
 			computerChoice = getComputerInput();
-			console.log(userChoice, computerChoice)
+			//log-delete
+			console.log(userChoice, computerChoice);
 			playRound(userChoice, computerChoice);
-		})
+			if (userScore >= MAXPOINTS) {
+				computerChoiceDom.textContent = 'USER WON!';
+			} else if (computerScore >= MAXPOINTS) {
+				computerChoiceDom.textContent = 'CPU Won!';
+			}
+		});
 	});
-	if(userScore >= MAXPOINTS){
-		computerChoiceDom.textContent = 'USER WON!'
-	} else if (computerScore >= MAXPOINTS){
-		computerChoiceDom.textContent = 'CPU Won!'
-	}
-	
-	
-	
 }
-
-
 
 function getComputerInput() {
 	const choice = CHOICES[Math.floor(Math.random() * 3)];
@@ -45,8 +41,7 @@ function getComputerInput() {
 
 function playRound(user, computer) {
 	if (computer === user) {
-		console.log('Tie');
-		computerChoiceDom.textContent = `Computer Choice = ${computer}`;
+		computerChoiceDom.textContent = `TIE!`;
 		return 'tie';
 		// user wins
 	} else if (
@@ -65,7 +60,7 @@ function playRound(user, computer) {
 		(computer === 'SCISSORS' && user === 'PAPER')
 	) {
 		computerScore++;
-		computerScoreDOM.textContent =`${computerScore}: Computer`;
+		computerScoreDOM.textContent = `${computerScore}: Computer`;
 		computerChoiceDom.textContent = `Computer Choice = ${computer}`;
 
 		return 'cpu';
@@ -100,8 +95,7 @@ function playRound(user, computer) {
 // 	} else {
 // 		console.log('it was a tie')
 // 	}
-	
+
 // }
 
-
-year.textContent =  new Date().getFullYear()
+year.textContent = new Date().getFullYear();
