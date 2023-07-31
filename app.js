@@ -7,11 +7,10 @@ const computerScoreDOM = document.querySelector('.cpu-score');
 
 let userChoice;
 let computerChoice;
-
-const btns = document.querySelectorAll('button');
-
 let userScore = 0;
 let computerScore = 0;
+
+const btns = document.querySelectorAll('button');
 
 //game function
 game();
@@ -22,8 +21,6 @@ function game() {
 		btn.addEventListener('click', () => {
 			userChoice = btn.dataset.type;
 			computerChoice = getComputerInput();
-			//log-delete
-			console.log(userChoice, computerChoice);
 			playRound(userChoice, computerChoice);
 			if (userScore >= MAXPOINTS) {
 				computerChoiceDom.textContent = 'USER WON!';
@@ -66,36 +63,5 @@ function playRound(user, computer) {
 		return 'cpu';
 	}
 }
-
-// function game() {
-// 	let userScore = 0;
-// 	let cpuScore = 0;
-// 	const gameWinner = undefined;
-
-// 	for (let i = 0; i < maxRounds; i++) {
-// 		const computerChoice = getComputerInput().toUpperCase();
-// 		const userInput = getUserInput().toUpperCase();
-// 		let roundWinner = playRound(computerChoice, userInput);
-// 		switch (roundWinner) {
-// 			case 'cpu':
-// 				cpuScore++;
-// 				break;
-// 			case 'user':
-// 				userScore++;
-// 				break;
-// 			case 'tie':
-// 				break;
-// 		}
-// 	}
-// 	console.table(userScore, cpuScore);
-// 	if(cpuScore > userScore){
-// 		console.log('CPU Won')
-// 	} else if (userScore > cpuScore){
-// 		console.log("User won!")
-// 	} else {
-// 		console.log('it was a tie')
-// 	}
-
-// }
 
 year.textContent = new Date().getFullYear();
